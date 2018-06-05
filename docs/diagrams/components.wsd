@@ -1,0 +1,48 @@
+@startuml
+title Components
+
+skinparam cloud {
+  backgroundColor Skyblue
+}
+
+:User GPS: as User
+cloud "GET /locations" as API_locations_all
+cloud "GET /locations/:id" as API_locations_one
+cloud "GET /locations/:id/shedules" as API_locations_one_schedule
+cloud "GET /movies/:uuid" as API_movies_one
+
+node App
+node Root
+node Header
+node Main
+node Home
+node CinemaList
+node CinemaListActions
+node CinemaListItems
+node CinemaPage
+node CinemaPageDetails
+node ScheduleList
+node ScheduleListItems
+
+App -- Root
+Root -- Header
+Root -- Main
+Main -- Home
+Main -- CinemaList
+CinemaList -- CinemaListActions
+CinemaList ~~ CinemaListItems
+CinemaList ~~ CinemaListItems
+Main -- CinemaPage
+CinemaPage -- CinemaPageDetails
+CinemaPage -- ScheduleList
+ScheduleList ~~ ScheduleListItems
+ScheduleList ~~ ScheduleListItems
+
+CinemaList -up-> API_locations_all
+CinemaListItems --> User
+CinemaPage -up-> API_locations_one
+ScheduleList -up-> API_locations_one_schedule
+ScheduleList ~up~> API_movies_one
+ScheduleList ~up~> API_movies_one
+
+@enduml

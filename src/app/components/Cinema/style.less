@@ -1,0 +1,55 @@
+.cinema-list-container {
+  width: 100%;
+  padding: 10px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  .cinema-list-actions,
+  .cinema-list {
+    width: 50%;
+  }
+
+  .cinema-list {
+    th:nth-child(1) {
+      width: 70%;
+    }
+
+    th:nth-child(2) {
+      width: 30%;
+    }
+  }
+
+  .cinema-list-actions {
+    padding: 10px;
+  }
+}
+
+.cinema-page-container {
+  width: 100%;
+  padding: 1em;
+
+  .cinema_headline {
+    margin-bottom: 20px;
+
+    > * {
+      display: inline;
+      margin-right: 20px
+    }
+  }
+
+  .cinema_detail {
+    margin: 0 0 1em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      display: inline-block;
+      margin: 0 0 0 1em;
+    }
+  }
+}

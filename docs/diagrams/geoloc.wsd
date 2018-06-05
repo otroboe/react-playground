@@ -1,0 +1,26 @@
+@startuml
+title Geoloc
+
+node App
+node CinemaList
+node CinemaListActions
+storage CinemaStore
+storage GeolocStore
+agent Coordinates as "@observable coordinates"
+agent SortedList as "@computed sortedList"
+
+GeolocStore -- Coordinates
+CinemaStore -- SortedList
+
+App ..> GeolocStore: startWatch()
+CinemaStore <== GeolocStore: dep injection
+
+CinemaList --> CinemaListActions
+
+SortedList ~~> CinemaList
+CinemaListActions ..> CinemaStore: setFilter()
+
+Coordinates ~~> CinemaListActions
+Coordinates ~~> CinemaStore
+
+@enduml

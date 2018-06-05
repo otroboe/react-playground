@@ -1,0 +1,35 @@
+@import '~vars';
+
+.schedule-list-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  
+  .schedule-list-item {
+    height: 250px;
+    width: 400px;
+    margin-top: 20px;
+
+    display: flex;
+
+    > img {
+      height: 100%;
+    }
+
+    > div {
+      padding-left: 20px;;
+
+      h6 {
+        color: @dark-gray5;
+      }
+
+      ul {
+        margin: 20px 0 0 0;
+        padding: 0;
+        list-style: none;
+        color: @gray1;
+        border-top: 5px @gray1;
+      }
+    }
+  }
+}
